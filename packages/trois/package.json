@@ -1,0 +1,41 @@
+{
+  "name": "@xyz-lab/trois",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "description": "> TODO: description",
+  "author": "Alvaro Saburido <hola@alvarosabu.dev>",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "homepage": "",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "ui": "^0.2.4",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.10",
+    "@vitejs/plugin-vue": "^2.0.0",
+    "@windicss/plugin-animations": "^1.0.9",
+    "daisyui": "^1.24.3",
+    "three": "^0.136.0",
+    "trois": "^1.0.3",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vite-plugin-windicss": "^1.6.3",
+    "vue-router": "^4.0.12",
+    "vue-tsc": "^0.29.8",
+    "windicss": "^3.4.3"
+  }
+}

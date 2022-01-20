@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika&family=Roboto&display=swap');
+
+@font-face {
+  font-family: 'iA Writer Duo';
+  font-weight: 400;
+  src: local('iAWriterDuoS'),
+    url(/fonts/iAWriterDuoS-Regular.ttf) format('truetype'),
+    url(/fonts/iAWriterDuoS-Regular.woff) format('woff'),
+    url(/fonts/iAWriterDuoS-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'iA Writer Duo';
+  font-weight: 800;
+  src: local('iAWriterDuoS'),
+    url(/fonts/iAWriterDuoS-Bold.ttf) format('truetype'),
+    url(/fonts/iAWriterDuoS-Bold.woff) format('woff'),
+    url(/fonts/iAWriterDuoS-Regular.woff2) format('woff2');
+}

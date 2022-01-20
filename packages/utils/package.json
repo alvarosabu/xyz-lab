@@ -1,0 +1,20 @@
+{
+  "name": "@xyz-lab/utils",
+  "version": "0.0.0",
+  "author": "Alvaro Saburido <hola@alvarosabu.dev>",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  },
+  "dependencies": {
+    "ui": "^0.2.4"
+  }
+}
