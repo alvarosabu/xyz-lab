@@ -1,6 +1,6 @@
 {
   "name": "@xyz-lab/utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "Alvaro Saburido <hola@alvarosabu.dev>",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
