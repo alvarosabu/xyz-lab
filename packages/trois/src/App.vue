@@ -4,7 +4,7 @@
   <div class="absolute inset-0 drawer h-full">
     <input id="left-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
-      <XyzNavbar class="mb-8">
+      <XyzNavbar>
         <template v-slot:logo>
           <span class="text-lg font-bold">TroisJS Journey</span>
         </template>

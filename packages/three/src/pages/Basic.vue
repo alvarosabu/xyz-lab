@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref, watch, computed, Ref } from 'vue'
+import { onMounted } from 'vue'
 import * as THREE from 'three'
-/* import { Camera, Scene, WebGLRenderer } from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js' */
 import { CameraType, useCamera, useRenderer, useScene } from '/@/composables'
-/* import { useWindowSize } from '@vueuse/core' */
 
 // Scene
 const { scene } = useScene()
@@ -15,13 +12,13 @@ camera.position.set(15, 15, 15)
 scene.add(camera)
 
 // Objects
-const cube = new THREE.Mesh(
+const sphere = new THREE.Mesh(
   new THREE.SphereGeometry(2, 32, 32),
   new THREE.MeshBasicMaterial({ color: 'teal' }),
 )
 
-cube.position.set(0, 4, 0)
-scene.add(cube)
+sphere.position.set(0, 4, 0)
+scene.add(sphere)
 
 const plane = new THREE.Mesh(
   new THREE.PlaneGeometry(10, 10, 10, 10),
