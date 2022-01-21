@@ -1,5 +1,11 @@
 import { ref, watch, computed, Ref } from 'vue'
-import { Camera, Scene, WebGLRenderer, WebGLRendererParameters } from 'three'
+import {
+  Camera,
+  Scene,
+  WebGLRenderer,
+  WebGLRendererParameters,
+  PCFSoftShadowMap,
+} from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import { useWindowSize } from '@vueuse/core'
@@ -17,12 +23,17 @@ export const useRenderer = () => {
   function initRenderer(
     camera: Camera,
     options: Partial<WebGLRendererParameters>,
+    shadows?: boolean,
   ) {
     if (experience.value) {
       renderer.value = new WebGLRenderer({
         canvas: experience.value,
         ...options,
       })
+      if (shadows) {
+        renderer.value.shadowMap.enabled = true
+        renderer.value.shadowMap.type = PCFSoftShadowMap
+      }
       controls.value = new OrbitControls(camera, renderer.value.domElement)
       controls.value.enableDamping = true
     }

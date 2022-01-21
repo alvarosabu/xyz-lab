@@ -1,8 +1,9 @@
-import { Pane, FpsGraph } from 'tweakpane'
+import { Pane } from 'tweakpane'
 import * as EssentialsPlugin from '@tweakpane/plugin-essentials'
 
 let pane: Pane
-let fpsGraph: FpsGraph
+let fpsGraph: any
+
 export const useTweakPane = () => {
   if (!pane) {
     pane = new Pane()

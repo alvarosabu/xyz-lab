@@ -6,8 +6,8 @@ const router = useRouter()
 const [, ...routes] = router.getRoutes()
 </script>
 <template>
-  <div class="container mx-auto">
-    <div class="grid grid-cols-4">
+  <div class="container mx-auto pt-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <XyzCard
         :title="route.name"
         :content="route.meta.description"

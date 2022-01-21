@@ -16,6 +16,16 @@ const routes: RouteRecordRaw[] = [
       tags: [],
     },
   },
+  {
+    path: '/lights',
+    name: 'Lights',
+    component: () => import('/@/pages/Lights.vue'),
+    meta: {
+      media: 'lights.png',
+      description: 'Lights in TroisJS',
+      tags: ['ambient', 'directional', 'hemisphere', 'point', 'spot'],
+    },
+  },
 ]
 
 export const Router = createRouter({

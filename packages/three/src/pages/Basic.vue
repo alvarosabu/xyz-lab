@@ -6,7 +6,9 @@ import { CameraType, useCamera, useRenderer, useScene } from '/@/composables'
 // Scene
 const { scene } = useScene()
 
-const { camera } = useCamera(CameraType.Perspective)
+const { createCamera } = useCamera()
+
+const camera = createCamera(CameraType.Perspective)
 
 camera.position.set(15, 15, 15)
 scene.add(camera)
