@@ -10,6 +10,7 @@ import {
   useScene,
   useTweakPane,
 } from '/@/composables'
+import { Object3D } from 'three'
 
 // Scene
 const { scene } = useScene()
@@ -25,17 +26,60 @@ scene.add(camera)
 const { createLight } = useLights()
 
 const ambientLight = createLight(LightType.AmbientLight, { color: '#fff' })
-scene.add(ambientLight)
+scene.add(ambientLight as Object3D)
 
-const directionalLight = createLight(
+const { light: directionalLight, helper: directionalLightHelper } = createLight(
   LightType.DirectionalLight,
   {
-    color: '#fff',
+    color: '#FCF9D9', // Warm Light
+    intensity: 0.5,
+  },
+  true,
+  true,
+)
+directionalLight.position.set(5, 20, 0)
+scene.add(directionalLight)
+scene.add(directionalLightHelper)
+
+const rectAreaLight = createLight(LightType.RectAreaLight, {
+  color: 'purple',
+  intensity: 1,
+})
+
+rectAreaLight.position.set(-3, 0, 3)
+rectAreaLight.lookAt(0, 0, 0)
+
+scene.add(rectAreaLight)
+
+// Hemisphere light
+const { light: hemisphereLight, helper: hemisphereLightHelper } = createLight(
+  LightType.HemisphereLight,
+  {
+    color: 'red',
+    groundColor: 'blue',
+    intensity: 0.5,
+  },
+  false,
+  true,
+)
+scene.add(hemisphereLight)
+scene.add(hemisphereLightHelper)
+
+// Spot light
+const spotLight = createLight(
+  LightType.SpotLight,
+  {
+    color: 'green',
+    intensity: 0.8,
+    distance: 100,
+    angle: Math.PI / 4,
+    penumbra: 0.25,
+    decay: 1,
   },
   true,
 )
-directionalLight.position.set(5, 10, 0)
-scene.add(directionalLight)
+spotLight.position.set(0, 2, -8)
+scene.add(spotLight)
 
 // Objects
 const sphere = new THREE.Mesh(
@@ -43,8 +87,18 @@ const sphere = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: 'teal' }),
 )
 sphere.castShadow = true
+sphere.receiveShadow = true
 sphere.position.set(0, 4, 0)
 scene.add(sphere)
+
+const torus = new THREE.Mesh(
+  new THREE.TorusGeometry(2, 0.5, 16, 100),
+  new THREE.MeshStandardMaterial({ color: '#5447AA' }),
+)
+torus.position.set(8, 8, 0)
+torus.rotation.set(0, Math.PI / 2, 0)
+torus.castShadow = true
+scene.add(torus)
 
 const plane = new THREE.Mesh(
   new THREE.PlaneGeometry(30, 30, 10, 10),
@@ -67,11 +121,10 @@ const {
 
 const { pane, fpsGraph } = useTweakPane()
 
-console.log(Object.entries(sphere.position))
-
 const sphereFolder = pane.addFolder({
   title: 'Sphere',
 })
+
 Object.keys(sphere.position).forEach(key => {
   sphereFolder.addInput(sphere.position, key as string, {
     min: -10,
@@ -86,10 +139,20 @@ const DirectionalLightFolder = pane.addFolder({
 
 Object.keys(directionalLight.position).forEach(key => {
   DirectionalLightFolder.addInput(directionalLight.position, key as string, {
-    min: -10,
-    max: 10,
-    step: 0.1,
+    min: -100,
+    max: 100,
+    step: 1,
   })
+})
+
+DirectionalLightFolder.addInput(directionalLight, 'intensity', {
+  min: 0,
+  max: 1,
+  step: 0.1,
+})
+
+DirectionalLightFolder.addInput(directionalLightHelper, 'visible', {
+  label: 'Helper visible',
 })
 
 const loop = () => {
@@ -120,5 +183,5 @@ onMounted(() => {
 })
 </script>
 <template>
-  <canvas ref="experience"></canvas>
+  <canvas ref="experience" class="bg-gray-800"></canvas>
 </template>

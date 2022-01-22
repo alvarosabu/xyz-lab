@@ -17,15 +17,15 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="xyz-card shadow-lg rounded-xl">
-    <figure v-if="media">
+  <div class="xyz-card shadow-lg rounded-xl overflow-hidden">
+    <figure v-if="media" class="aspect-video overflow-hidden">
       <img :src="media" />
     </figure>
     <div class="card-body">
       <h2 class="card-title font-display text-2xl">{{ title }}</h2>
-      <p>
-        {{ content }}
-      </p>
+      <slot>
+        <p class="card-text">{{ content }}</p>
+      </slot>
       <div class="card-actions">
         <slot name="actions">
           <XyzButton class="btn-primary"> Awiwi </XyzButton>

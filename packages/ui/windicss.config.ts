@@ -1,10 +1,11 @@
 const { transform } = require('windicss/helpers')
 
 import animations from '@windicss/plugin-animations'
+import aspectRatio from 'windicss/plugin/aspect-ratio'
 import { defineConfig } from 'vite-plugin-windicss'
 
 export default defineConfig({
-  plugins: [transform('daisyui'), animations],
+  plugins: [transform('daisyui'), animations, aspectRatio],
   theme: {
     extend: {
       fontFamily: {
