@@ -22,8 +22,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import('/@/pages/Lights.vue'),
     meta: {
       media: 'lights.png',
-      description: 'Lights in TroisJS',
-      tags: ['ambient', 'directional', 'hemisphere', 'point', 'spot'],
+      description: 'Lights and casting shadows in TroisJS',
+      tags: ['ambient', 'directional', 'hemisphere', 'spot', 'shadow'],
     },
   },
 ]
