@@ -5,6 +5,7 @@ import WindiCSS from 'vite-plugin-windicss'
 import svgLoader from 'vite-svg-loader'
 import copy from 'rollup-plugin-copy'
 import PurgeIcons from 'vite-plugin-purge-icons'
+import glsl from 'vite-plugin-glsl'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    glsl(),
     WindiCSS(),
     PurgeIcons({
       /* PurgeIcons Options */

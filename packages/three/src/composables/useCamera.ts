@@ -1,7 +1,7 @@
 import { PerspectiveCamera, Camera, OrthographicCamera } from 'three'
 
 import { useWindowSize } from '@vueuse/core'
-import { computed, reactive, watch } from 'vue'
+import { computed, watch } from 'vue'
 
 export enum CameraType {
   Perspective = 'Perspective',
@@ -12,9 +12,9 @@ export type CameraState = {
   cameras: Array<Camera | PerspectiveCamera | OrthographicCamera>
 }
 
-const state = reactive<CameraState>({
+const state: CameraState = {
   cameras: [],
-})
+}
 
 const VERTICAL_FIELD_OF_VIEW = 45
 let camera: Camera | PerspectiveCamera | OrthographicCamera
@@ -34,6 +34,7 @@ export const useCamera = () => {
           options.near,
           options.far,
         )
+        state.cameras.push(camera as PerspectiveCamera)
         break
 
       default:

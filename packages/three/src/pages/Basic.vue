@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 import * as THREE from 'three'
 import { CameraType, useCamera, useRenderer, useScene } from '/@/composables'
 
@@ -39,6 +39,7 @@ const {
   renderScene,
   updateRenderer,
   updateControls,
+  disposeRenderer,
 } = useRenderer()
 
 const loop = () => {
@@ -59,7 +60,10 @@ onMounted(() => {
 
   loop()
   updateRenderer()
-  loop()
+})
+
+onBeforeUnmount(() => {
+  disposeRenderer()
 })
 </script>
 <template>

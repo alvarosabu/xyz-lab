@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "ui": "^0.2.4",
-    "vue": "^3.2.25"
+    "vue": "^3.2.30"
   },
   "devDependencies": {
     "@tweakpane/plugin-essentials": "^0.1.4",
@@ -30,12 +30,12 @@
     "@vitejs/plugin-vue": "^2.0.0",
     "@windicss/plugin-animations": "^1.0.9",
     "daisyui": "^1.24.3",
-    "three": "^0.136.0",
+    "three": "^0.137.5",
     "troisjs": "^0.3.3",
     "tweakpane": "^3.0.7",
     "typescript": "^4.4.4",
-    "vite": "^2.7.2",
-    "vite-plugin-windicss": "^1.6.3",
+    "vite": "^2.8.0",
+    "vite-plugin-windicss": "^1.7.0",
     "vue-router": "^4.0.12",
     "vue-tsc": "^0.29.8",
     "windicss": "^3.4.3"

@@ -34,6 +34,17 @@ const routes: RouteRecordRaw[] = [
       ],
     },
   },
+  {
+    path: '/shader',
+    name: 'Shader',
+    component: () => import('/@/pages/shaders/basic/ShadersBasic.vue'),
+    meta: {
+      media: 'shader.png',
+      description:
+        'Add a custom shader to your scene using glsl vertex and fragment shaders',
+      tags: ['shader', 'glsl', 'material', 'procedural'],
+    },
+  },
 ]
 
 export const Router = createRouter({

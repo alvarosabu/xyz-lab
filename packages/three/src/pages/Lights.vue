@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 import * as THREE from 'three'
 import {
   CameraType,
@@ -10,7 +10,7 @@ import {
   useScene,
   useTweakPane,
 } from '/@/composables'
-import { Object3D } from 'three'
+import { Object3D, Vector3 } from 'three'
 
 // Scene
 const { scene } = useScene()
@@ -117,6 +117,7 @@ const {
   renderScene,
   updateRenderer,
   updateControls,
+  disposeRenderer,
 } = useRenderer()
 
 const { pane, fpsGraph } = useTweakPane()
@@ -126,7 +127,7 @@ const sphereFolder = pane.addFolder({
 })
 
 Object.keys(sphere.position).forEach(key => {
-  sphereFolder.addInput(sphere.position, key as string, {
+  sphereFolder.addInput(sphere.position, key as keyof Vector3, {
     min: -10,
     max: 10,
     step: 0.1,
@@ -176,10 +177,13 @@ onMounted(() => {
     },
     true,
   )
-
   loop()
   updateRenderer()
-  loop()
+})
+
+onBeforeUnmount(() => {
+  disposeRenderer()
+  pane.dispose()
 })
 </script>
 <template>

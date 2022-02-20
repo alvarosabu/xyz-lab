@@ -1,18 +1,18 @@
-import { ref, watch, computed, Ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 import {
   Camera,
+  PCFShadowMap,
   Scene,
   WebGLRenderer,
   WebGLRendererParameters,
-  PCFSoftShadowMap,
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import { useWindowSize } from '@vueuse/core'
 
 const experience = ref(null)
-const renderer: Ref<WebGLRenderer | null> = ref(null)
-const controls: Ref<OrbitControls | null> = ref(null)
+let renderer: WebGLRenderer
+let controls: OrbitControls
 
 export const useRenderer = () => {
   const { width, height } = useWindowSize()
@@ -23,38 +23,46 @@ export const useRenderer = () => {
   function initRenderer(
     camera: Camera,
     options: Partial<WebGLRendererParameters>,
-    shadows?: boolean,
+    shadows: boolean = false,
   ) {
     if (experience.value) {
-      renderer.value = new WebGLRenderer({
+      renderer = new WebGLRenderer({
         canvas: experience.value,
         ...options,
       })
-      if (shadows) {
-        renderer.value.shadowMap.enabled = true
-        renderer.value.shadowMap.type = PCFSoftShadowMap
-      }
-      controls.value = new OrbitControls(camera, renderer.value.domElement)
-      controls.value.enableDamping = true
+      renderer.shadowMap.enabled = shadows
+      renderer.shadowMap.type = PCFShadowMap
+      /*  if (shadows) {
+        renderer.shadowMap.enabled = true
+        renderer.shadowMap.type = PCFShadowMap
+      } */
+      controls = new OrbitControls(camera, renderer.domElement)
+      controls.enableDamping = true
     }
   }
 
   function updateRenderer() {
-    if (renderer.value) {
-      renderer.value.setSize(width.value, height.value)
-      renderer.value.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    if (renderer) {
+      renderer.setSize(width.value, height.value)
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     }
   }
 
   function renderScene(scene: Scene, camera: THREE.Camera) {
-    if (renderer.value) {
-      renderer.value.render(scene, camera)
+    if (renderer) {
+      renderer.render(scene, camera)
     }
   }
 
   function updateControls() {
-    if (controls.value) {
-      controls.value.update()
+    if (controls) {
+      controls.update()
+    }
+  }
+
+  function disposeRenderer() {
+    if (renderer) {
+      renderer.dispose()
     }
   }
 
@@ -67,5 +75,6 @@ export const useRenderer = () => {
     renderScene,
     controls,
     updateControls,
+    disposeRenderer,
   }
 }
