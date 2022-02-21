@@ -1,8 +1,10 @@
 import { ref, watch, computed } from 'vue'
 import {
+  ACESFilmicToneMapping,
   Camera,
   PCFShadowMap,
   Scene,
+  sRGBEncoding,
   WebGLRenderer,
   WebGLRendererParameters,
 } from 'three'
@@ -30,12 +32,14 @@ export const useRenderer = () => {
         canvas: experience.value,
         ...options,
       })
-      renderer.shadowMap.enabled = shadows
+      // More realistic shadows
+      renderer.shadowMap.enabled = true
       renderer.shadowMap.type = PCFShadowMap
-      /*  if (shadows) {
-        renderer.shadowMap.enabled = true
-        renderer.shadowMap.type = PCFShadowMap
-      } */
+      renderer.physicallyCorrectLights = true
+      renderer.outputEncoding = sRGBEncoding
+      renderer.toneMapping = ACESFilmicToneMapping
+      renderer.toneMappingExposure = 1
+
       controls = new OrbitControls(camera, renderer.domElement)
       controls.enableDamping = true
     }

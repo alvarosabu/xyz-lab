@@ -45,6 +45,17 @@ const routes: RouteRecordRaw[] = [
       tags: ['shader', 'glsl', 'material', 'procedural'],
     },
   },
+  {
+    path: '/textures',
+    name: 'Textures',
+    component: () => import('/@/pages/textures/basic/TexturesBasic.vue'),
+    meta: {
+      media: 'textures.png',
+      description:
+        'Add a custom shader to your scene using glsl vertex and fragment shaders',
+      tags: ['textures', 'displacementMap', 'normalMap', 'roughnessMap'],
+    },
+  },
 ]
 
 export const Router = createRouter({
