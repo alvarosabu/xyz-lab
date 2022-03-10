@@ -7,6 +7,19 @@
   resolved "https://registry.yarnpkg.com/@alvarosabu/prettier-config/-/prettier-config-1.1.0.tgz#76388446bd50e54465a189392d8a8cf759df712e"
   integrity sha512-o6CifCwIae4rXE8FxYYrD+H3QRKmVJyKmSOKd+5MNPWA7mgjVcwUjO7MGXOAEG4TBFw5mK2MC1gLrp5oXEioig==
 
+"@alvarosabu/ui@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@alvarosabu/ui/-/ui-1.2.2.tgz#9278e794e0b76ae385a16eb1bec52e45f2f95a11"
+  integrity sha512-/PFoNTjoIrj9J12Nf3MZhIU7v7UXPfeuXZkv/sbguXPLsR81zUcIUnJoEjr1++vBZuV3iDrpfl3hLuZPmt3ODQ==
+  dependencies:
+    "@iconify/iconify" "^2.1.2"
+    "@vueuse/core" "^7.7.0"
+    "@vueuse/integrations" "^7.7.0"
+    "@windicss/plugin-animations" "^1.0.9"
+    focus-trap "^6.7.3"
+    postcss-scss "^4.0.3"
+    vue "^3.2.31"
+
 "@antfu/utils@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.4.0.tgz#df100ed9922d7359bf6c99083765b5207086b9a7"
@@ -90,6 +103,13 @@
   integrity sha512-g3d9lxUdGtnqM0aZkZNjnZkgIzh8CeqkkSwcrgzYyWg8urPuQtryhpRHPaYEqmYct4e9Mo0LSP7BqfTU5WeaPw==
   dependencies:
     cross-fetch "^3.1.4"
+
+"@iconify/iconify@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@iconify/iconify/-/iconify-2.1.2.tgz#978e8f08c3b834816c82ae2933b3a70f143f7685"
+  integrity sha512-QcUzFeEWkE/mW+BVtEGmcWATClcCOIJFiYUD/PiCWuTcdEA297o8D4oN6Ra44WrNOHu1wqNW4J0ioaDIiqaFOQ==
+  dependencies:
+    cross-fetch "^3.1.5"
 
 "@iconify/json@^1.1.458":
   version "1.1.458"
@@ -1489,6 +1509,14 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.31.tgz#c90de7126d833dcd3a4c7534d534be2fb41faa4e"
   integrity sha512-ymN2pj6zEjiKJZbrf98UM2pfDd6F2H7ksKw7NDt/ZZ1fh5Ei39X5tABugtT03ZRlWd9imccoK0hE8hpjpU7irQ==
 
+"@vueuse/core@7.7.0", "@vueuse/core@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-7.7.0.tgz#ddc5bbc910fbe0e2eda2cc823998dcf4a13265b4"
+  integrity sha512-DS8+dg758CiWnswebYHjS05PqTtc1ZLomsDlkFjG/KC0iFRgFIsGC66AAGuSXLqWCoirp2xN6N2mkrp1aHdI7A==
+  dependencies:
+    "@vueuse/shared" "7.7.0"
+    vue-demi "*"
+
 "@vueuse/core@^7.6.2":
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-7.6.2.tgz#1b9aa92048991189fac31577ff439296efa5fb4a"
@@ -1497,10 +1525,26 @@
     "@vueuse/shared" "7.6.2"
     vue-demi "*"
 
+"@vueuse/integrations@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/integrations/-/integrations-7.7.0.tgz#ce19c077d252ae97a8e4fe71c36e47361f38d1e9"
+  integrity sha512-uWx/ewh9/enOqrpPHYCXJeXKw73wJyPkwokVMgaQpkA+hbtlZJ2AX+1AP7fF3ul9zFYW+FXATK9z6vDrG0hlIg==
+  dependencies:
+    "@vueuse/core" "7.7.0"
+    "@vueuse/shared" "7.7.0"
+    vue-demi "*"
+
 "@vueuse/shared@7.6.2":
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-7.6.2.tgz#6d83bdb003cd8a56dc779fe501e73a4cb755b802"
   integrity sha512-ThDld4Mx501tahRuHV6qJGkwCr17GknZrOzlD02Na9qJcH7Pq0quNTLx5cNDou7b1CKNvE3BXi2w/hz9KuPNTQ==
+  dependencies:
+    vue-demi "*"
+
+"@vueuse/shared@7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-7.7.0.tgz#4fa97e68f987c8a10bf075de0e57b986da9f1b38"
+  integrity sha512-ANzMcUnjuUPJ9nWqMAqYt8p0qon6AH5pP5/V/0RSWkwCIWZwi57ujIaxizzMwnJECUF/73BmsRmpvvtokCIrKw==
   dependencies:
     vue-demi "*"
 
@@ -2202,6 +2246,13 @@ cross-fetch@^3.0.6, cross-fetch@^3.1.4:
   dependencies:
     node-fetch "2.6.1"
 
+cross-fetch@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
+
 cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
@@ -2860,6 +2911,13 @@ find-up@^4.0.0, find-up@^4.1.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
+
+focus-trap@^6.7.3:
+  version "6.7.3"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.7.3.tgz#b5dc195b49c90001f08a63134471d1e6dd381ddd"
+  integrity sha512-8xCEKndV4KrseGhFKKKmczVA14yx1/hnmFICPOjcFjToxCJYj/NHH43tPc3YE/PLnLRNZoFug0EcWkGQde/miQ==
+  dependencies:
+    tabbable "^5.2.1"
 
 follow-redirects@^1.14.0:
   version "1.14.7"
@@ -4110,7 +4168,7 @@ node-fetch@2.6.1:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
-node-fetch@^2.6.1:
+node-fetch@2.6.7, node-fetch@^2.6.1:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
@@ -4623,6 +4681,11 @@ pkg-dir@^4.2.0:
   integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
   dependencies:
     find-up "^4.0.0"
+
+postcss-scss@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.3.tgz#36c23c19a804274e722e83a54d20b838ab4767ac"
+  integrity sha512-j4KxzWovfdHsyxwl1BxkUal/O4uirvHgdzMKS1aWJBAV0qh2qj5qAZqpeBfVUYGWv+4iK9Az7SPyZ4fyNju1uA==
 
 postcss@^8.1.10, postcss@^8.4.5:
   version "8.4.5"
@@ -5488,6 +5551,11 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
+
+tabbable@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.2.1.tgz#e3fda7367ddbb172dcda9f871c0fdb36d1c4cd9c"
+  integrity sha512-40pEZ2mhjaZzK0BnI+QGNjJO8UYx9pP5v7BGe17SORTO0OEuuaAwQTkAp8whcZvqon44wKFOikD+Al11K3JICQ==
 
 tar@^4.4.12:
   version "4.4.19"

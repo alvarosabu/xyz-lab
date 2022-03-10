@@ -56,6 +56,27 @@ const routes: RouteRecordRaw[] = [
       tags: ['textures', 'displacementMap', 'normalMap', 'roughnessMap'],
     },
   },
+  {
+    path: '/gltf-loader',
+    name: 'GLTF Loader',
+    component: () => import('/@/pages/models/GltfLoader.vue'),
+    meta: {
+      media: 'gltf-loader.png',
+      description:
+        'Add a custom shader to your scene using glsl vertex and fragment shaders',
+      tags: ['gltf', 'loader', 'model'],
+    },
+  },
+  {
+    path: '/particles',
+    name: 'Particles',
+    component: () => import('/@/pages/particles/basic/ParticlesBasic.vue'),
+    meta: {
+      media: 'particles.png',
+      description: 'Create a particle system using points material',
+      tags: ['particles', 'points', 'pointsMaterial'],
+    },
+  },
 ]
 
 export const Router = createRouter({
