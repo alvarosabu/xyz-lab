@@ -39,7 +39,6 @@ export const useRenderer = () => {
       renderer.outputEncoding = sRGBEncoding
       renderer.toneMapping = ACESFilmicToneMapping
       renderer.toneMappingExposure = 1
-
       controls = new OrbitControls(camera, renderer.domElement)
       controls.enableDamping = true
     }
@@ -49,6 +48,12 @@ export const useRenderer = () => {
     if (renderer) {
       renderer.setSize(width.value, height.value)
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    }
+  }
+
+  function setClearColor(color: number) {
+    if (renderer) {
+      renderer.setClearColor(color)
     }
   }
 
@@ -80,5 +85,6 @@ export const useRenderer = () => {
     controls,
     updateControls,
     disposeRenderer,
+    setClearColor,
   }
 }

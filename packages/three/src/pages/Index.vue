@@ -28,7 +28,7 @@ const [, ...routes] = router.getRoutes()
           </ul>
         </template>
         <template #actions>
-          <router-link :to="route.path" class="btn btn-primary btn-md">
+          <router-link :to="route.path" class="btn btn-primary btn-sm">
             Check experiment
           </router-link>
         </template>

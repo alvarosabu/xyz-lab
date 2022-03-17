@@ -77,6 +77,17 @@ const routes: RouteRecordRaw[] = [
       tags: ['particles', 'points', 'pointsMaterial'],
     },
   },
+  {
+    path: '/portal-journey',
+    name: 'Portal Journey',
+    component: () => import('/@/pages/portal-journey/PortalJourney.vue'),
+    meta: {
+      media: 'portal-journey.png',
+      description:
+        'Create a portal scene with Blender 3.0 and baking technique',
+      tags: ['blender', 'gltf', 'baking'],
+    },
+  },
 ]
 
 export const Router = createRouter({
