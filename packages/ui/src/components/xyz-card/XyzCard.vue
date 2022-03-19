@@ -27,9 +27,7 @@ const props = defineProps({
         <p class="card-text">{{ content }}</p>
       </slot>
       <div class="card-actions">
-        <slot name="actions">
-          <XyzButton class="btn-primary"> Awiwi </XyzButton>
-        </slot>
+        <slot name="actions"> </slot>
       </div>
     </div>
   </div>

@@ -1,12 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useExperiments } from '/@/composables/useExperiments'
+
+const { filter } = useExperiments()
+</script>
 
 <template>
   <div class="absolute inset-0 drawer h-full">
     <input id="left-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
-      <XyzNavbar>
+      <XyzNavbar class="fixed w-full z-50 bg-white">
         <template v-slot:logo>
-          <span class="text-lg font-bold">Three Journey</span>
+          <span class="iconify text-primary mr-4" data-icon="mdi:flask"></span>
+          <span class="text-lg font-bold text-dark-300">XYZ </span>
+        </template>
+        <template v-slot:center>
+          <span class="iconify" data-icon="heroicons-solid:search"></span>
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-ghost w-full max-w-xs"
+            v-model="filter"
+          />
         </template>
       </XyzNavbar>
       <router-view />

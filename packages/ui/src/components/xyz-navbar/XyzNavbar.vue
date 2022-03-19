@@ -11,8 +11,14 @@ const state = ref({})
         ><span class="iconify" data-icon="heroicons-solid:menu"
       /></label>
     </div>
-    <div class="flex-1 hidden px-2 mx-2 lg:flex">
+    <div class="flex hidden px-2 mx-2 lg:flex">
       <slot name="logo"><span class="text-lg font-bold">xyzNavbar</span></slot>
+    </div>
+    <div class="flex hidden px-2 mx-4 lg:flex">
+      <slot name="center"></slot>
+    </div>
+    <div class="flex hidden px-2 mx-2 lg:flex">
+      <slot name="actions"></slot>
     </div>
   </div>
 </template>
