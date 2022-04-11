@@ -23,7 +23,9 @@ const { filter } = useExperiments()
           />
         </template>
       </XyzNavbar>
-      <router-view />
+      <Suspense fallback="Loading...">
+        <router-view />
+      </Suspense>
     </div>
     <div class="drawer-side">
       <label for="left-drawer" class="drawer-overlay"></label>

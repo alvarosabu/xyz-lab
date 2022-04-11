@@ -62,8 +62,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('/@/pages/models/GltfLoader.vue'),
     meta: {
       media: 'gltf-loader.png',
-      description:
-        'Add a custom shader to your scene using glsl vertex and fragment shaders',
+      description: 'Load a glTF model using the GLTFLoader',
       tags: ['gltf', 'loader', 'model'],
     },
   },
@@ -86,6 +85,28 @@ const routes: RouteRecordRaw[] = [
       description:
         'Create a portal scene with Blender 3.0 and baking technique',
       tags: ['blender', 'gltf', 'baking'],
+    },
+  },
+  {
+    path: '/drag-drop-physics',
+    name: 'Drag N Drop Physics',
+    component: () => import('/@/pages/physics/DragDropPhysics.vue'),
+    meta: {
+      media: 'portal-journey.png',
+      description:
+        'Scene with physics using drag and drop physics with CannonJS',
+      tags: ['physics', 'gltf', 'drag', 'cannonjs'],
+    },
+  },
+  {
+    path: '/gltf-animations',
+    name: 'Gltf animations',
+    component: () => import('/@/pages/models/GltfAnimations.vue'),
+    meta: {
+      media: 'gltf-animations.png',
+      description:
+        'Gltf animations using ThreeJS AnimationMixer and AnimationClip',
+      tags: ['gltf', 'animations'],
     },
   },
 ]

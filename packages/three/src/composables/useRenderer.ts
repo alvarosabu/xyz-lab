@@ -26,7 +26,7 @@ export const useRenderer = () => {
     camera: Camera,
     options: Partial<WebGLRendererParameters>,
     shadows: boolean = false,
-  ) {
+  ): { renderer: WebGLRenderer; controls: OrbitControls } {
     if (experience.value) {
       renderer = new WebGLRenderer({
         canvas: experience.value,
@@ -39,8 +39,14 @@ export const useRenderer = () => {
       renderer.outputEncoding = sRGBEncoding
       renderer.toneMapping = ACESFilmicToneMapping
       renderer.toneMappingExposure = 1
+
       controls = new OrbitControls(camera, renderer.domElement)
       controls.enableDamping = true
+
+      return {
+        renderer,
+        controls,
+      }
     }
   }
 
